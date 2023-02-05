@@ -24,11 +24,24 @@ exports.loginUser = async (req, res) => {
       req.body.password
     );
 
-    res.status(201).send({
-      status: 201,
-      message: typeof user === "object" ? "User Log in successfully..." : user,
-      user: user,
-    });
+    if (
+      user === "Email is not Registered..." ||
+      user === "incorrect Password..."
+    ) {
+      res.status(400).send({
+        status: 400,
+        message:
+          typeof user === "object" ? "User Log in successfully..." : user,
+        user: user,
+      });
+    } else {
+      res.status(201).send({
+        status: 201,
+        message:
+          typeof user === "object" ? "User Log in successfully..." : user,
+        user: user,
+      });
+    }
   } catch (error) {
     console.log("error", error);
     res.status(400).send({

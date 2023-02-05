@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 mongoose.connect(
-  "mongodb+srv://task:task@cluster0.wanukex.mongodb.net/?retryWrites=true&w=majority",
+  "add you own mongodb config url",
   {
     useNewUrlParser: true,
   }
